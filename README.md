@@ -11,10 +11,12 @@ Create a full-stack mern application that allows users to register and login. Wh
 - Pull mongoose connection string and secret key from `keys.js` file in `config` directory
 ### Server Endpoints
 - Register new user in UserCollection
+    - properties : name, email, password (encrypted), dateCreated
 - Login existing user from UserCollection
 - Verify user json web token
-- Read list of comments from CommentsCollection
 - Add comment to CommentsCollection
+    - properties : title, body
+- Read list of comments from CommentsCollection
 ### Client Views
 - Login Form (only visible if not logged in)
 - Registration Form (only visible if not logged in)
