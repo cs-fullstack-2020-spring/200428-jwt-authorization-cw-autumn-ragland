@@ -1,13 +1,15 @@
 let express = require("express");
 let app = express();
-let port = 8000;
+let port = process.env.PORT || 8000;
+
+app.use(express.static('../client/build'));
 
 // CONNECTING TO A MONGO DB DATABASE
 // reference the mongoose module 
 let mongoose = require('mongoose');
 // connect to database
 let mongoDB = require('./config/keys').mongoURI;
-mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
+mongoose.connect(process.env.MONGODB_URI || mongoDB, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 // connection error message
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
